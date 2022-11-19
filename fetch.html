@@ -9,7 +9,7 @@
 	<section id="emp" style="display: flex;">
 </section>
    <script type="text/javascript">
-   	fetch("https://reqres.in/api/users?page=2")
+/*fetch("https://reqres.in/api/users?page=2")
    	.then((res)=>{
    		console.log(res)
    		return res.json()
@@ -28,7 +28,24 @@
    			</div>`;
    		}
    	//block.innerHTML=employees[0].first_name
-   }
+   }*/
+   fetch("https://reqres.in/api/users",{
+   	method:"POST",
+   	headers:{
+   		"Content-Type":"application/json"
+   	},
+   	body:JSON.stringify({name:"chinni",age:20,gender:"female"})
+   })
+   .then((res)=>{
+   	console.log(res)
+   	if(res.status===201){
+   		alert("data added successfully")
+   	}
+   	return res.json()
+   })
+   .then((update)=>{
+   	console.log(update)
+   }) 
    </script>
 </body>
 </html>
